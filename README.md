@@ -1,7 +1,7 @@
 # MapTalk
 
 - We spend hours making beautiful and informative interactive maps for data analysis and vizualization
-- When we go to present our work to an aidience, we should be bale to use a platform that stays true to the original intent of the visualiztion
+- When we go to present our work to an audience, we should be able to use a platform that stays true to the original intent of the visualiztion
 - This is my early atempt at making a simple patform to incorporate a map visualization with a talk createed with Mapbox GL JS
 - The startegy is that each "slide" is a chapter of information that includes:
  - textual information specific to that chapter
