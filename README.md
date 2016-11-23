@@ -8,3 +8,11 @@
  -  function calls to be performed at the transition of the chapter
     - standard functions like, Zoom, Pan and center
     - calling any other function
+
+
+## Organization
+	### Index.html
+		- Main html page with your map
+	### all_chapters.js
+	    - This file contains a variable all_cahpters which is a json
+	###  
