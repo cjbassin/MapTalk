@@ -16,5 +16,5 @@
 ### all_chapters.js
 - This file contains a variable all_cahpters which is a json
 - TODO: change structure to have include an array of text  and an internal function to add lists for each array.  Currently, the html is written into the json to be added.  This can be automated
--TODO: have number of chapters linked directly to number of slider values
-	###  
+- TODO: have number of chapters linked directly to number of slider values
+ 
