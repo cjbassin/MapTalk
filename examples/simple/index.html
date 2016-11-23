@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #frontpage{z-index:1;
+                    position:absolute;
+                    top:4vh;
+                    left:4vw;
+                    width:92vw;
+                    height:92vh;
+                    background-color: rgba(255,255,255,50);
+                    border: 2px solid black;
+                    border-radius: 20px;
+                    text-align:
+                    center;font-size: 45px;}
+        #bringfront{ position:absolute; left:2px;bottom:2px; width:25px; height:25px; }
+        h5{font-size: 24}
+    </style>
+    <link rel="stylesheet" type="text/css" href="qi.css"/>
+</head>
+<script src="all_chapters.json"/></script>
+<body>
+<nav id="menu"></nav>
+<div id='map'></div>
+<div id='features'>
+<input id="slider" type="range"  min="0" max="8" step="1" value ="0" oninput="outputUpdate(value)"/>
+<input id ="myButton" type="button" value="->" onclick= "moveForward()"/>
+<section id='info' class='active'>
+</section>
+    
+</div>
+<button id="bringfront" onclick="frontslide()">#</button>
+<div id="frontpage" onclick = "frontslide()">
+    <h3>Presentation Simple Example</h3>
+    <h5>Simplified version of the presentation that got me thinking</h5>
+    <h5> </h5>
+</div>
+
+<script>
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2piYXNzaW4iLCJhIjoiY2lnbnl5M2JlMDBkY21ma284MHpmYjdycSJ9.hCuiySWxJTct7nZvXRsiEQ';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/dark-v8',
+    center: [-10, 38],
+    zoom: 2
+});
+map.addControl(new mapboxgl.NavigationControl());
+
+
+function frontslide(){
+    if (document.getElementById('frontpage').style.display == ''){
+        document.getElementById('frontpage').style.display='none';
+    }else{
+    document.getElementById('frontpage').style.display='';
+    };
+};
+
+
+function setActiveChapter(chapterid) {
+    var currentid = all_chapters.allchapters[chapterid];
+    map.flyTo(currentid.fly);
+    element = document.getElementById('info');
+    element.innerHTML = currentid.innerText;
+    // check for any function calls in json
+    if (currentid.calls != undefined){
+        funcarray = currentid.calls;
+        for (var q=0; q< funcarray.length; q++){
+            window[funcarray[q].fname]();
+        };
+    };
+
+};
+
+
+
+function outputUpdate(chapterid) {
+    console.log(chapterid);
+    setActiveChapter(chapterid)
+}
+
+function moveForward(){
+    var s = document.getElementById('slider');
+    var v = s.valueAsNumber;
+    if (v <s.max){
+        var nv =v+1;
+    }else{var nv = 0;}
+    s.value = nv;
+    outputUpdate(nv);
+}
+
+map.on('style.load', function () {   
+    map.setPaintProperty('water', 'fill-color', '#33709e');
+    map.addSource('markers1', {
+        'type': 'geojson',
+        'data': 'dataJS.json'
+    });
+
+    types = ['DataTypeA','DataTypeB','DataTypeC','DataTypeD'];
+    color = ["rgba(253, 192, 134, 0.5)","rgba(11, 203, 213, 0.5)","rgba(11, 215, 31, 0.5)","rgba(166, 213, 11, 0.5)"]
+        types.forEach(function(e,i,a){
+        map.addLayer({
+                "id": 'Layer' + i,
+                "type": "circle",
+                "source": "markers1",
+                "filter": ["==", "majorType", e],
+                "paint":{"circle-color": color[i],
+                         "circle-opacity": {
+                            "base":0.5,
+                            "stops": [[ 2, 0.5],[19,1]]
+                        },
+                            "circle-radius": {
+                                "base": 1.5,
+                                "stops": [[2,1.5],[19,25]]
+                            }, 
+                            "circle-blur":0.3// Nice radius value
+
+                }
+            });
+        addLayer('Layer' + i,'Layer' + i);
+    });
+
+    // add boxes
+    setActiveChapter(0)
+
+    
+    });
+
+
+
+
+function addLayer(name, id) {
+
+        map.setLayoutProperty(id, 'visibility', 'visible');
+        var link = document.createElement('a');
+        link.href = '#';
+        link.className = 'active';
+        link.textContent = name;
+
+
+    link.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var visibility = map.getLayoutProperty(id, 'visibility');
+
+        if (visibility === 'visible') {
+            map.setLayoutProperty(id, 'visibility', 'none');
+            this.className = '';
+        } else {
+            this.className = 'active';
+            map.setLayoutProperty(id, 'visibility', 'visible');
+        }
+    };
+
+    var layers = document.getElementById('menu');
+
+    layers.appendChild(link);
+}
+
+function addbox(){
+    boxlayers.forEach(function(e,i,a){
+        window.setTimeout(function(){
+            map.setLayoutProperty('boxes' + e,'visibility','visible')},2000 + i*600)
+        });
+};
+
+function removebox(){
+    boxlayers.forEach(function(e,i,a){
+       map.setLayoutProperty('boxes' + e,'visibility','none')
+        });
+};
+
+
+
+
+
+</script>
+
+</body>
+</html>

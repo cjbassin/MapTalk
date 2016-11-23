@@ -1,0 +1,52 @@
+var all_chapters = {
+  "allchapters": [
+    {
+      "chapter": "st1",
+      "innerText": "<h3>A Title</h3><p><ul><li> Here is some general information about what we are looking at</li></ul></p></section>",
+      "fly": {"center": [2.8, 31.4],
+            "zoom": 1.452,
+            "pitch": 0},
+      "calls": {}
+    },
+    {
+      "chapter": "st2",
+      "innerText": "<h3>Methodology</h3><p><ul><li>Here is some more info...<span style='color:rgba(11, 215, 31, 1)'>Layer A</span> <span style='color:rgba(253, 192, 134,1)'> LayerB </span>s</li><li> More stuff</li><li>more stuff</li></ul></p> </section>",
+      "fly": {"center": [2.8, 31.4],
+            "zoom": 1.452,
+            "pitch": 0},
+      "calls": {}
+    },
+    {
+      "chapter": "st3",
+      "innerText": "<h3> <style='color:rgba(11, 215, 31, 1)'>Example - </h3><p><ul><li> even more informaiton about something</li></ul>  </p> </section>",
+      "fly": {"center": [-118.33490138623219, 34.110561032417095],
+            "zoom": 16.74,
+            "pitch": 35},
+      "calls": {}
+    },
+    {
+      "chapter": "st4",
+      "innerText": "<h3 style='color:rgba(253, 192, 134,1)'>Example - </h3><p><ul><li>Some more explanations</li><li>  </li></ul>  </p> </section>",
+      "fly": {"center": [-118.35133072605706, 34.034387894476055],
+            "zoom": 16.27,
+            "pitch": 70},
+      "calls": {}
+    },
+    {
+      "chapter": "st5",
+      "innerText": "<h3>Problems</h3><p><ul><li>A.....</li><li>B </li></ul>  </p> </section>",
+      "fly": {"center": [-118.35133072605706, 34.034387894476055],
+            "zoom": 16.27,
+            "pitch": 70},
+      "calls": {}
+    },
+    {
+      "chapter": "st6",
+      "innerText": "<h3>Output</h3><p><ul><li>MORE AND MORE</li><li><More </li><li>C</li><li>Map </li></ul>  </p> </section>",
+      "fly": { "center": [-10, 18],
+            "zoom": 2,
+            "pitch": 0},
+      "calls": {}
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+
+    #menu {
+        background: black;
+        position: absolute;
+        z-index: 1;
+        top: 5px;
+        left: 10px;
+        border-radius: 3px;
+        width: 135px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #menu a {
+        font-size: 13px;
+
+        color: black;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        text-align: center;
+    }
+
+    #menu a:last-child {
+        border: none;
+    }
+
+    #menu a:hover {
+        background-color: #f8f8f8;
+        color: #404040;
+    }
+
+    #menu a.active {
+        background-color: #000;
+        color: #ffffff;
+    }
+
+    #menu a.active:hover {
+        background: grey;
+    }
+
+    #map {
+    position: fixed;
+    height:70vh;
+    }
+
+    ul{
+        list-style: none;
+    }
+
+.slider{
+            width:100px;
+            height: 10px;
+        }
+
+input[type=range] {
+    -webkit-appearance: none;
+    border-radius: 8px;
+    height: 7px;
+    border: 1px solid #bdc3c7;
+    background-color: #fff; 
+}
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 20px;
+    width: 7px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5px;
+}
+
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 7px;
+  border-radius: 5px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+
+
+
+input:active {
+    position:relative;
+    top:1px;
+
+}
+
+#features {
+    position: fixed;
+    width: 100%;
+    height: 30vh;
+    top: 70vh;
+    font-family: sans-serif;
+    overflow-y: scroll;
+    background-color: #fafafa;
+}
+input[type=button] {
+    border-radius: 8px;
+    border: 1px solid #bdc3c7;
+    background-color: #fff; 
+}
+
+section {
+    height: 30vh;
+    padding:  15px;
+    line-height: 25px;
+    border-bottom: 1px solid #ddd;
+    opacity: 0.25;
+    font-size: 20px;
+}
+section.active {
+    opacity: 1;
+}
+
