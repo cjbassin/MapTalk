@@ -6,5 +6,5 @@
 - The startegy is that each "slide" is a chapter of information that includes:
  - textual information specific to that chapter
  -  function calls to be performed at the transition of the chapter
-   - standard functions like, Zoom, Pan and center
-   - calling any other function
+    - standard functions like, Zoom, Pan and center
+    - calling any other function
